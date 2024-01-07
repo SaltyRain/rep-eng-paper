@@ -1,0 +1,128 @@
+
+% VLDB template version of 2020-08-03 enhances the ACM template, version 1.7.0:
+% https://www.acm.org/publications/proceedings-template
+% The ACM Latex guide provides further information about the ACM template
+
+\documentclass[sigconf, nonacm]{acmart}
+\usepackage{booktabs}
+
+%% The following content must be adapted for the final version
+% paper-specific
+\newcommand\vldbdoi{XX.XX/XXX.XX}
+\newcommand\vldbpages{XXX-XXX}
+% issue-specific
+\newcommand\vldbvolume{14}
+\newcommand\vldbissue{1}
+\newcommand\vldbyear{2020}
+% should be fine as it is
+\newcommand\vldbauthors{\authors}
+\newcommand\vldbtitle{\shorttitle} 
+% leave empty if no availability url should be set
+\newcommand\vldbavailabilityurl{https://github.com/SaltyRain/repEng-JSONSchemaDiscovery}
+% whether page numbers should be shown or not, use 'plain' for review versions, 'empty' for camera ready
+\newcommand\vldbpagestyle{plain} 
+
+\begin{document}
+\title{RepEng Project: An Approach for Schema Extraction of JSON and Extended JSON Document Collections}
+
+%%
+%% The "author" command and its associated commands are used to define the authors and their affiliations.
+\author{Timur Garipov}
+\affiliation{%
+  \institution{The University of Passau}
+  \streetaddress{Innstraße 41, 94032 Passau}
+  \city{Passau}
+  \state{Germany}
+  \postcode{94032}
+}
+\email{garipo01@ads.uni-passau.de}
+
+%%
+%% The abstract is a short summary of the work to be presented in the
+%% article.
+% \begin{abstract}
+% Praesent imperdiet, lacus nec varius placerat, est ex eleifend justo, a vulputate leo massa consectetur nunc. Donec posuere in mi ut tempus. Pellentesque sem odio, faucibus non mi in, laoreet maximus arcu. In hac habitasse platea dictumst. Nunc euismod neque eu urna accumsan, vitae vehicula metus tincidunt. Maecenas congue tortor nec varius pellentesque. Pellentesque bibendum libero ac dignissim euismod. Aliquam justo ante, pretium vel mollis sed, consectetur accumsan nibh. Nulla sit amet sollicitudin est. Etiam ullamcorper diam a sapien lacinia faucibus.
+% \end{abstract}
+
+\maketitle
+
+%%% do not modify the following VLDB block %%
+%%% VLDB block start %%%
+% \pagestyle{\vldbpagestyle}
+% \begingroup\small\noindent\raggedright\textbf{PVLDB Reference Format:}\\
+% \vldbauthors. \vldbtitle. PVLDB, \vldbvolume(\vldbissue): \vldbpages, \vldbyear.\\
+% \href{https://doi.org/\vldbdoi}{doi:\vldbdoi}
+% \endgroup
+% \begingroup
+% \renewcommand\thefootnote{}\footnote{\noindent
+% This work is licensed under the Creative Commons BY-NC-ND 4.0 International License. Visit \url{https://creativecommons.org/licenses/by-nc-nd/4.0/} to view a copy of this license. For any use beyond those covered by this license, obtain permission by emailing \href{mailto:info@vldb.org}{info@vldb.org}. Copyright is held by the owner/author(s). Publication rights licensed to the VLDB Endowment. \\
+% \raggedright Proceedings of the VLDB Endowment, Vol. \vldbvolume, No. \vldbissue\ %
+% ISSN 2150-8097. \\
+% \href{https://doi.org/\vldbdoi}{doi:\vldbdoi} \\
+% }\addtocounter{footnote}{-1}\endgroup
+%%% VLDB block end %%%
+
+%%% do not modify the following VLDB block %%
+%%% VLDB block start %%%
+\ifdefempty{\vldbavailabilityurl}{}{
+\vspace{.3cm}
+\begingroup\small\noindent\raggedright\textbf{Artifact Availability:}\\
+The source code, data, and/or other artifacts have been made available at \url{\vldbavailabilityurl}.
+\endgroup
+}
+%%% VLDB block end %%%
+
+\section{Introduction}
+
+In the rapidly evolving field of data science and software engineering, the reproducibility of research results stands as a cornerstone of scientific integrity and validation. The paper "An Approach for Schema Extraction of JSON and Extended JSON Document Collections"~\cite{8424731} introduces an innovative methodology for extracting schemas from JSON and Extended JSON document collections, a critical task in understanding and utilizing data efficiently in various applications.
+
+This report provides a detailed account of the replication project, an attempt to reproduce the results of the above article using a robust and containerized environment. Replication efforts serve to confirm the claims of the original work, ensure continuity of knowledge, and provide a platform for further research and development in data structuring and analysis.
+
+\section{Background}
+
+The original work’s significance lies in its approach to systematically derive schemas from unstructured or semi-structured JSON documents, ubiquitous in today’s web and data-driven applications. By retrieving documents with simple and complex attributes mainly in JSON (\textit{JavaScript Object Notation}) or Extended JSON formats (~\cite{6106531} ~\cite{7592700}), the methodology aids in better data organization, error detection, and optimization of data storage and retrieval processes. Central to our reproduction effort is confirming the effectiveness and accuracy of schema extraction as presented in the original study, particularly in terms of its applicability to diverse JSON structures and its impact on improving data management practices.
+
+This project is dedicated to accurately reconstructing the research environment within a Docker container. It effectively encapsulates the application, its dependencies, and the necessary scripts for the JSON and Extended JSON schema extraction process. This approach ensures that the reproduction attempt is conducted in an isolated and controlled environment, closely mimicking the original setup and thereby minimizing discrepancies attributable to environmental differences. 
+
+Reproducing these findings is critical not only for validating the original results but also for setting a precedent for reliability and transparency in research methodologies in the field.
+
+
+\section{Hypothesis and Research Questions}
+
+In pursuit of validating the aforementioned paper, our study tests the following hypothesis: The methodology from the original study accurately and effectively extracts schemas from various unstructured or semi-structured JSON documents, enhancing data organization, error detection, and storage optimization.
+
+\begin{table}[h!]
+\centering
+\caption{Results for Foursquare Datasets}
+\label{tab:my-table}
+\begin{footnotesize}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Collection & N\_JSON   & RS & ROrd & TB  & TT      & TB/TT  \\ \midrule
+\textit{venues}     & 2 million  & 257 & 117  & 7,47 min & 7,52 min & 99,33\% \\
+\textit{checkins}   & 11 million & 2   & 2    & 35,27 min & 35,52 min & 99,29\% \\
+\textit{tweets}     & 17 million & 23  & 16   & 53,11 min & 53,44 min & 99,38\% \\ \bottomrule
+\end{tabular}
+\end{footnotesize}
+\smallskip
+\footnotesize{N\_JSON - Number of JSON documents. RS - Raw schemas. ROrd - Raw schemas with ordered structure. TB - Time to obtain the raw schemas. TT - Total time.}
+\end{table}
+
+These research questions could be established:
+\begin{itemize}
+\item Effectiveness: Can we replicate the effective schema extraction as claimed in the original study?
+\item Accuracy: Does our reproduction affirm the accuracy levels of schema extraction reported in the original study?
+\item Applicability: Is the methodology consistently effective and accurate across diverse JSON document structures?
+\item Impact: How does schema extraction impact data management practices in our reproduction context?
+\end{itemize}
+
+
+In this report, my goal is to closely replicate the findings of the referenced paper using the tools and procedures outlined in the reproduction package. Table \ref{tab:my-table} shows the average time it took to extract schemas from the datasets. 
+
+For the timing aspects of the results, such as the duration of schema extraction from JSON files, we will employ a 'Percent Error or Tolerance Range' approach. This method acknowledges that while hardware and software environments can variably affect absolute running times, the relative performance should remain consistent. Therefore, we will determine an acceptable percentage range within which our times can vary from the original study's times. For instance, if the original time is noted as 7.47 minutes for a task, results within ±10\% of this time will be considered successful, ensuring the replicated results reflect the relative efficiency and accuracy of the original results without necessitating identical performance metrics.
+
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{literature}
+
+\end{document}
