@@ -17,8 +17,8 @@ os.makedirs(output_dir, exist_ok=True)
 
 # Run pdflatex or xelatex or lualatex depending on your document
 subprocess.run(['pdflatex', '-output-directory', output_dir, tex_file])
-# Run bibtex
-subprocess.run(['bibtex', os.path.join(output_dir, 'paper')])
+# Run biber
+subprocess.run(['biber', os.path.splitext(os.path.basename(tex_file))[0]], cwd=output_dir)
 # Run pdflatex again to update document references and citations
 subprocess.run(['pdflatex', '-output-directory', output_dir, tex_file])
 # Run pdflatex again to ensure all references are updated
