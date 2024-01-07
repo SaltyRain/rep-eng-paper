@@ -5,6 +5,8 @@
 
 \documentclass[sigconf, nonacm]{acmart}
 \usepackage{booktabs}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{literature.bib} % Note this is different from \bibliography
 
 %% The following content must be adapted for the final version
 % paper-specific
@@ -122,7 +124,8 @@ In this report, my goal is to closely replicate the findings of the referenced p
 For the timing aspects of the results, such as the duration of schema extraction from JSON files, we will employ a 'Percent Error or Tolerance Range' approach. This method acknowledges that while hardware and software environments can variably affect absolute running times, the relative performance should remain consistent. Therefore, we will determine an acceptable percentage range within which our times can vary from the original study's times. For instance, if the original time is noted as 7.47 minutes for a task, results within ±10\% of this time will be considered successful, ensuring the replicated results reflect the relative efficiency and accuracy of the original results without necessitating identical performance metrics.
 
 
-\bibliographystyle{ACM-Reference-Format}
-\bibliography{literature}
+% \bibliographystyle{ACM-Reference-Format}
+% \bibliography{literature.bib}
+\printbibliography
 
 \end{document}
