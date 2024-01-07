@@ -5,8 +5,9 @@
 
 \documentclass[sigconf, nonacm]{acmart}
 \usepackage{booktabs}
-\usepackage[backend=biber]{biblatex}
-\addbibresource{literature.bib} % Note this is different from \bibliography
+% \usepackage[backend=biber]{biblatex}
+% \addbibresource{literature.bib} % Note this is different from \bibliography
+\usepackage{natbib} % Using natbib for bibliography management
 
 %% The following content must be adapted for the final version
 % paper-specific
@@ -126,6 +127,11 @@ For the timing aspects of the results, such as the duration of schema extraction
 
 % \bibliographystyle{ACM-Reference-Format}
 % \bibliography{literature.bib}
-\printbibliography
+% \printbibliography
+
+% Instead of \printbibliography, you use the natbib-compatible bibliography commands.
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{literature.bib} % Your bibliography file name here.
 
 \end{document}
